@@ -3,41 +3,86 @@
       <title>calculator</title>
 	     <input id="ans" value="0"> <br>
       <script type = "text/javascript">
-	     
+	     var a = 0
+		 var b = 0
+		 var y
+		 var num = 0
+		 var numm
+		 var now = 0
+		 var noww
+		 
          document.write( "<table><thead></thead><tbody>" )
 		 
 		 document.write( "<tr><td><button type=\"button\" id=\"7\" onclick=number(7)>7</button></td>" )
 		 document.write( "<td><button type=\"button\" id=\"8\" onclick=number(8)>8</button></td>" )
 		 document.write( "<td><button type=\"button\" id=\"9\" onclick=number(9)>9</button></td>" )
-		 document.write( "<td><button type=\"button\" id=\"+\" onclick=number(+)>+</button></td></tr>" )
+		 document.write( "<td><button type=\"button\" id=\"+\" onclick=opt(11)>+</button></td></tr>" )
 		 
 		 document.write( "<tr><td><button type=\"button\" id=\"4\" onclick=number(4)>4</button></td>" )
 		 document.write( "<td><button type=\"button\" id=\"5\" onclick=number(5)>5</button></td>" )
 		 document.write( "<td><button type=\"button\" id=\"6\" onclick=number(6)>6</button></td>" )
-		 document.write( "<td><button type=\"button\" id=\"-\" onclick=number(-)>-</button></td></tr>" )
+		 document.write( "<td><button type=\"button\" id=\"-\" onclick=opt(12)>-</button></td></tr>" )
 		 
 		 document.write( "<tr><td><button type=\"button\" id=\"1\" onclick=number(1)>1</button></td>" )
 		 document.write( "<td><button type=\"button\" id=\"2\" onclick=number(2)>2</button></td>" )
 		 document.write( "<td><button type=\"button\" id=\"3\" onclick=number(3)>3</button></td>" )
-		 document.write( "<td><button type=\"button\" id=\"*\" onclick=number(*)>*</button></td></tr>" )
+		 document.write( "<td><button type=\"button\" id=\"*\" onclick=opt(13)>*</button></td></tr>" )
 		 
 		 document.write( "<tr><td><button type=\"button\" id=\"0\" onclick=number(0)>0</button></td>" )
-		 document.write( "<td><button type=\"button\" id=\"=\" onclick=number(=)>=</button></td>" )
-		 document.write( "<td><button type=\"button\" id=\"C\" onclick=number(C)>C</button></td>" )
-		 document.write( "<td><button type=\"button\" id=\"/\" onclick=number(/)>/</button></td></tr>" )
+		 document.write( "<td><button type=\"button\" id=\"=\" onclick=opt(15)>=</button></td>" )
+		 document.write( "<td><button type=\"button\" id=\"C\" onclick=number(16)>C</button></td>" )
+		 document.write( "<td><button type=\"button\" id=\"/\" onclick=opt(14)>/</button></td></tr>" )
 		 
 		 document.write( "</tbody></table>" )
+		 
 		 function number(x)
 		 {
-		    var y = document.getElementById("ans").value
-			if ( y == "0" ){
+		    y = document.getElementById("ans").value
+			if ( a == "0" ){
+			   if ( y == "0" ){
+			      document.getElementById("ans").value = x
+			   }else {
+			      document.getElementById("ans").value = document.getElementById("ans").value + x
+		       }
+			}
+			if ( a == "1" ){
 			   document.getElementById("ans").value = x
-			}else {
-			   document.getElementById("ans").value = document.getElementById("ans").value + x
-		    }
+			   a = 0
+			}
 		 
 		 }
-		 
+		 function opt(o)
+		 {
+		    
+			a = 1
+			
+		    if ( o == "11" ){
+			   b = 1
+			   num = document.getElementById("ans").value
+			   
+			}
+		    if ( o == "12" ){
+			   b = 2
+			   
+			}
+			if ( o == "13" ){
+			   b = 3
+			   
+			}
+			if ( o == "14" ){
+			   b = 4
+			   
+			}
+			if ( o == "15" ){
+			   if ( b == "1" ){
+			      now = document.getElementById("ans").value
+			      noww = parseInt( now )
+			      numm = parseInt( num )
+			      document.getElementById("ans").value = noww + numm
+			   }
+			}
+		 }
+		 console.log( a )
       </script>
 
    </head><body></body>
