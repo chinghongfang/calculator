@@ -3,13 +3,17 @@
       <title>calculator</title>
 	     <input id="ans" value="0"> <br>
       <script type = "text/javascript">
-	     var a = 0
-		 var b = 0
+	     var a = 0           //判斷是否為運算子
+		 var b = 0           //判斷為何種運算子
+		 var c = 0           //先乘除後加減，看是加還是減
 		 var y
 		 var num = 0
 		 var numm
 		 var now = 0
 		 var noww
+		 var nnow = 0
+		 var nnoww
+		 var answer = 0
 		 
          document.write( "<table><thead></thead><tbody>" )
 		 
@@ -57,17 +61,57 @@
 			a = 1
 			
 		    if ( o == "11" ){
+			   
+			   if ( b == "1" ){
+			      now = document.getElementById("ans").value
+			      noww = parseInt( now )
+			      numm = parseInt( num )
+			      document.getElementById("ans").value = noww + numm
+			   }
+			   if ( b == "2" ){
+			      now = document.getElementById("ans").value
+			      noww = parseInt( now )
+			      numm = parseInt( num )
+			      document.getElementById("ans").value = numm - noww
+			   }
 			   b = 1
+			   c = 1
 			   num = document.getElementById("ans").value
 			   
 			}
 		    if ( o == "12" ){
+			   
+			   if ( b == "1" ){
+			      now = document.getElementById("ans").value
+			      noww = parseInt( now )
+			      numm = parseInt( num )
+			      document.getElementById("ans").value = noww + numm
+			   }
+			   if ( b == "2" ){
+			      now = document.getElementById("ans").value
+			      noww = parseInt( now )
+			      numm = parseInt( num )
+			      document.getElementById("ans").value = numm - noww
+			   }
 			   b = 2
+			   c = 2
+			   num = document.getElementById("ans").value
 			   
 			}
 			if ( o == "13" ){
-			   b = 3
 			   
+			   if ( b == "1" ){
+			      now = document.getElementById("ans").value
+			      noww = parseInt( now )
+			      numm = parseInt( num )
+			   }
+			   if ( b == "3" ){
+			      
+			   }
+			   b = 3
+			   now = document.getElementById("ans").value
+			   noww = parseInt( now )
+			   numm = parseInt( num )
 			}
 			if ( o == "14" ){
 			   b = 4
@@ -79,6 +123,26 @@
 			      noww = parseInt( now )
 			      numm = parseInt( num )
 			      document.getElementById("ans").value = noww + numm
+				  now = 0
+				  num = 0
+				  b = 0
+			   }
+			   if ( b == "2" ){
+			      now = document.getElementById("ans").value
+			      noww = parseInt( now )
+			      numm = parseInt( num )
+			      document.getElementById("ans").value = numm - noww
+				  now = 0
+				  num = 0
+				  b = 0
+			   }
+			   if ( b == "3" ){
+			      nnow = document.getElementById("ans").value
+				  nnoww = parseInt( nnow )
+				  answer = noww * nnoww
+				  answer = parseInt( answer )
+				  document.getElementById("ans").value = numm + answer
+				  
 			   }
 			}
 		 }
