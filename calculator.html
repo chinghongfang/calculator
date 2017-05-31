@@ -34,7 +34,7 @@
 		 
 		 document.write( "<tr><td><button type=\"button\" id=\"0\" onclick=number(0)>0</button></td>" )
 		 document.write( "<td><button type=\"button\" id=\"=\" onclick=opt(15)>=</button></td>" )
-		 document.write( "<td><button type=\"button\" id=\"C\" onclick=number(16)>C</button></td>" )
+		 document.write( "<td><button type=\"button\" id=\"C\" onclick=reset()>C</button></td>" )
 		 document.write( "<td><button type=\"button\" id=\"/\" onclick=opt(14)>/</button></td></tr>" )
 		 
 		 document.write( "</tbody></table>" )
@@ -54,6 +54,10 @@
 			   a = 0
 			}
 		 
+		 }
+		 function reset()
+		 {
+		    document.getElementById("ans").value = 0
 		 }
 		 function opt(o)
 		 {
