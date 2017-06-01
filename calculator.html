@@ -6,6 +6,7 @@
 	     var a = 0           //判斷是否為運算子
 		 var b = 0           //判斷為何種運算子
 		 var c = 0           //先乘除後加減，看是加還是減
+		 var d = 0           //防呆
 		 var y
 		 var add = 0         //被加數
 		 
@@ -38,10 +39,12 @@
 		 document.write( "<td><button type=\"button\" id=\"/\" onclick=opt(14)>/</button></td></tr>" )
 		 
 		 document.write( "</tbody></table>" )
+		 document.write( "<p id=\"idiot\">" + "" + "</p>" )
 		 
 		 function number(x)
 		 {
 		    y = document.getElementById("ans").value
+			document.getElementById("idiot").innerHTML = ""
 			if ( a == "0" ){
 			   if ( y == "0" ){
 			      document.getElementById("ans").value = x
@@ -53,144 +56,255 @@
 			   document.getElementById("ans").value = x
 			   a = 0
 			}
-		 
+		    d = 1
 		 }
 		 function reset()
 		 {
-		    document.getElementById("ans").value = 0
+		    if ( d = "1" ){
+		       document.getElementById("ans").value = 0
+			}
 		 }
 		 function opt(o)
 		 {
-		    
-			a = 1
-			
-		    if ( o == "11" ){                                           //加法
+		    if ( d == "0" ){
+			   document.getElementById("idiot").innerHTML = "請不要連續按兩次運算子"
+			}
+		    if  ( d == "1" ){
+			   a = 1
+			   d = 0
+		       if ( o == "11" ){                                           //加法
 			   
-			   if ( b == "1" ){
-			      added = document.getElementById("ans").value
-			      added = parseInt( added )
-			      add = parseInt( add )
-			      document.getElementById("ans").value = added + add
-			   }
-			   if ( b == "2" ){
-			      added = document.getElementById("ans").value
-			      added = parseInt( added )
-			      add = parseInt( add )
-			      document.getElementById("ans").value = add - added
-			   }
-			   if ( b == "3" ){
-			      mul = document.getElementById("ans").value
-				  mul = parseInt( mul )
-				  answer = added * mul
-				  answer = parseInt( answer )
-				  document.getElementById("ans").value = add + answer
-				  answer = 0
-				  added = 0
-				  add = 0
-				  b = 0
-			   }
-			   b = 1
-			   c = 1
-			   add = document.getElementById("ans").value
-			   answer = 0
+			      if ( b == "1" ){
+			         added = document.getElementById("ans").value
+			         added = parseInt( added )
+	   		         add = parseInt( add )
+			         document.getElementById("ans").value = added + add
+			      }
+			      if ( b == "2" ){
+			         added = document.getElementById("ans").value
+			         added = parseInt( added )
+			         add = parseInt( add )
+			         document.getElementById("ans").value = add - added
+			      }
+			      if ( b == "3" ){
+			         mul = document.getElementById("ans").value
+				     mul = parseInt( mul )
+				     answer = added * mul
+				     answer = parseInt( answer )
+				     if ( c == "1" ){
+				        document.getElementById("ans").value = add + answer
+				     }
+				     if ( c == "2" ){
+				        document.getElementById("ans").value = add - answer
+				     }
+				     if ( c == "0" ) {
+				        document.getElementById("ans").value = answer
+				     }
+				     answer = 0
+				     added = 0
+				     add = 0
+				     b = 0
+			      }
+			      if ( b == "4" ){
+			         mul = document.getElementById("ans").value
+				     mul = parseInt( mul )
+				     answer = added / mul
+				     answer = parseInt( answer )
+				     if ( c == "1" ){
+				        document.getElementById("ans").value = add + answer
+				     }
+				     if ( c == "2" ){
+				        document.getElementById("ans").value = add - answer
+				     }
+				     if ( c == "0" ) {
+				        document.getElementById("ans").value = answer
+				     }
+				     answer = 0
+				     added = 0
+				     add = 0
+				     b = 0
+			      }
+			      b = 1
+			      c = 1
+			      add = document.getElementById("ans").value
+			      answer = 0
 			   
-			}                                                           //加法
-		    if ( o == "12" ){                                           //減法
+			   }                                                           //加法
+		       if ( o == "12" ){                                           //減法
 			   
-			   if ( b == "1" ){
-			      added = document.getElementById("ans").value
-			      added = parseInt( added )
-			      add = parseInt( add )
-			      document.getElementById("ans").value = added + add
-			   }
-			   if ( b == "2" ){
-			      added = document.getElementById("ans").value
-			      added = parseInt( added )
-			      add = parseInt( add )
-			      document.getElementById("ans").value = add - added
-			   }
-			   if ( b == "3" ){
-			      mul = document.getElementById("ans").value
-				  mul = parseInt( mul )
-				  answer = added * mul
-				  answer = parseInt( answer )
-				  document.getElementById("ans").value = add - answer
-				  answer = 0
-				  added = 0
-				  add = 0
-				  b = 0
-			   }
-			   b = 2
-			   c = 2
-			   add = document.getElementById("ans").value
-			   answer = 0
+			      if ( b == "1" ){
+			         added = document.getElementById("ans").value
+			         added = parseInt( added )
+			         add = parseInt( add )
+			         document.getElementById("ans").value = added + add
+			      }
+			      if ( b == "2" ){
+			         added = document.getElementById("ans").value
+			         added = parseInt( added )
+			         add = parseInt( add )
+			         document.getElementById("ans").value = add - added
+			      }
+			      if ( b == "3" ){
+			         mul = document.getElementById("ans").value
+				     mul = parseInt( mul )
+				     answer = added * mul
+				     answer = parseInt( answer )
+				     if ( c == "1" ){
+				        document.getElementById("ans").value = add + answer
+				     }
+				     if ( c == "2" ){
+				        document.getElementById("ans").value = add - answer
+				     }
+				     if ( c == "0" ) {
+				        document.getElementById("ans").value = answer
+				     }
+				     answer = 0
+				     added = 0
+				     add = 0
+				     b = 0
+			      }
+			      if ( b == "4" ){
+			         mul = document.getElementById("ans").value
+				     mul = parseInt( mul )
+				     answer = added / mul
+				     answer = parseInt( answer )
+				     if ( c == "1" ){
+				        document.getElementById("ans").value = add + answer
+				     }
+				     if ( c == "2" ){
+				        document.getElementById("ans").value = add - answer
+				     }
+				     if ( c == "0" ) {
+				        document.getElementById("ans").value = answer
+				     }
+				     answer = 0
+				     added = 0
+				     add = 0
+				     b = 0
+			      }
+			      b = 2
+			      c = 2
+			      add = document.getElementById("ans").value
+			      answer = 0
 			   
-			}                                                           //減法
-			if ( o == "13" ){                                           //乘法
+			   }                                                           //減法
+			   if ( o == "13" ){                                           //乘法
 			   
-			   if ( b == "1" ){
-			      added = document.getElementById("ans").value
-			      added = parseInt( added )
-			      add = parseInt( add )
-			   }
-			   if ( b == "2" ){
-			      added = document.getElementById("ans").value
-			      added = parseInt( added )
-			      add = parseInt( add )
-			   }
-			   if ( b == "3" ){
-			      mul = document.getElementById("ans").value
-				  mul = parseInt( mul )
-				  document.getElementById("ans").value = added * mul
+			      if ( b == "1" ){
+			         added = document.getElementById("ans").value
+			         added = parseInt( added )
+			         add = parseInt( add )
+			      }
+			      if ( b == "2" ){
+			         added = document.getElementById("ans").value
+			         added = parseInt( added )
+			         add = parseInt( add )
+			      }
+			      if ( b == "3" ){
+			         mul = document.getElementById("ans").value
+				     mul = parseInt( mul )
+				     document.getElementById("ans").value = added * mul
 				  
-			   }
-			   b = 3
-			   added = document.getElementById("ans").value
-			   added = parseInt( added )
-			   add = parseInt( add )
-			}                                                           //乘法
-			if ( o == "14" ){                                           //除法
-			   b = 4
+			      }
+			      if ( b == "4" ){
+			         mul = document.getElementById("ans").value
+				     mul = parseInt( mul )
+				     document.getElementById("ans").value = added / mul
+			      }
+			      b = 3
+			      added = document.getElementById("ans").value
+			      added = parseInt( added )
+			      add = parseInt( add )
+			   }                                                           //乘法
+			   if ( o == "14" ){                                           //除法
+			      if ( b == "1" ){
+			         added = document.getElementById("ans").value
+			         added = parseInt( added )
+			         add = parseInt( add )
+			      }
+			      if ( b == "2" ){
+			         added = document.getElementById("ans").value
+			         added = parseInt( added )
+			         add = parseInt( add )
+			      }
+			      if ( b == "3" ){
+			         mul = document.getElementById("ans").value
+				     mul = parseInt( mul )
+				     document.getElementById("ans").value = added * mul
+			      }
+			      if ( b == "4" ){
+			         mul = document.getElementById("ans").value
+				     mul = parseInt( mul )
+				     document.getElementById("ans").value = added / mul
+			      }
+			      b = 4
+			      added = document.getElementById("ans").value
+			      added = parseInt( added )
+			      add = parseInt( add )
 			   
-			}                                                           //除法
-			if ( o == "15" ){
-			   if ( b == "1" ){
-			      added = document.getElementById("ans").value
-			      added = parseInt( added )
-			      add = parseInt( add )
-			      document.getElementById("ans").value = added + add
-				  added = 0
-				  add = 0
-				  b = 0
-			   }
-			   if ( b == "2" ){
-			      added = document.getElementById("ans").value
-			      added = parseInt( added )
-			      add = parseInt( add )
-			      document.getElementById("ans").value = add - added
-				  added = 0
-				  add = 0
-				  b = 0
-			   }
-			   if ( b == "3" ){
-			      mul = document.getElementById("ans").value
-				  mul = parseInt( mul )
-				  answer = added * mul
-				  answer = parseInt( answer )
-				  if ( c == "1" ){
-				     document.getElementById("ans").value = add + answer
-				  }
-				  if ( c == "2" ){
-				     document.getElementById("ans").value = add - answer
-				  }
-				  answer = 0
-				  added = 0
-				  add = 0
-				  b = 0
+			   }                                                           //除法
+			   if ( o == "15" ){
+			      if ( b == "1" ){
+			         added = document.getElementById("ans").value
+			         added = parseInt( added )
+			         add = parseInt( add )
+			         document.getElementById("ans").value = added + add
+				     added = 0
+				     add = 0
+				     b = 0
+			      }
+			      if ( b == "2" ){
+			         added = document.getElementById("ans").value
+			         added = parseInt( added )
+			         add = parseInt( add )
+			         document.getElementById("ans").value = add - added
+				     added = 0
+				     add = 0
+				     b = 0
+			      }
+			      if ( b == "3" ){
+			         mul = document.getElementById("ans").value
+				     mul = parseInt( mul )
+				     answer = added * mul
+				     answer = parseInt( answer )
+				     if ( c == "1" ){
+				        document.getElementById("ans").value = add + answer
+				     }
+				     if ( c == "2" ){
+				        document.getElementById("ans").value = add - answer
+				     }
+				     if ( c == "0" ) {
+				        document.getElementById("ans").value = answer
+				     }
+				     answer = 0
+				     added = 0
+				     add = 0
+				     b = 0
+			      }
+			      if ( b == "4" ){
+			         mul = document.getElementById("ans").value
+				     mul = parseInt( mul )
+				     answer = added / mul
+				     answer = parseInt( answer )
+				     if ( c == "1" ){
+				        document.getElementById("ans").value = add + answer
+				     }
+				     if ( c == "2" ){
+				        document.getElementById("ans").value = add - answer
+				     }
+				     if ( c == "0" ) {
+				        document.getElementById("ans").value = answer
+				     }
+				     answer = 0
+				     added = 0
+				     add = 0
+				     b = 0
+			      }
+			      c = 0
+				  d = 1
 			   }
 			}
 		 }
-		 console.log( a )
       </script>
 
    </head><body></body>
