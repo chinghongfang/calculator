@@ -1,6 +1,7 @@
 <html xmlns = "http://www.w3.org/1999/xhtnl">
    <head>
       <title>calculator</title>
+	     <p style = font-size:2ex> 自己做的計算機 </p>
 	     <input id="ans" value="0"> <br>
       <script type = "text/javascript">
 	     var a = 0           //判斷是否為運算子
@@ -34,12 +35,27 @@
 		 document.write( "<td><button type=\"button\" id=\"*\" onclick=opt(13)>*</button></td></tr>" )
 		 
 		 document.write( "<tr><td><button type=\"button\" id=\"0\" onclick=number(0)>0</button></td>" )
+		 document.write( "<td><button type=\"button\" id=\"dot\" onclick=dot()>.</button></td>" )
 		 document.write( "<td><button type=\"button\" id=\"=\" onclick=opt(15)>=</button></td>" )
-		 document.write( "<td><button type=\"button\" id=\"C\" onclick=reset()>C</button></td>" )
 		 document.write( "<td><button type=\"button\" id=\"/\" onclick=opt(14)>/</button></td></tr>" )
+		 
+		 document.write( "<tr><td><button type=\"button\" id=\"C\" onclick=reset()>C</button></td></tr>" )
 		 
 		 document.write( "</tbody></table>" )
 		 document.write( "<p id=\"idiot\">" + "" + "</p>" )
+		 
+		 function dot()
+		 {
+		    if ( a == "0" ){
+			   document.getElementById("ans").value = document.getElementById("ans").value + "."
+			}else if ( d == "1" ){
+			   document.getElementById("ans").value = document.getElementById("ans").value + "."
+			   a = 0
+			}else{
+			   document.getElementById("ans").value = 0 + "."
+			   a = 0
+			}
+		 }
 		 
 		 function number(x)
 		 {
